@@ -1,7 +1,5 @@
 import os
-import tkinter as tk
-from tkinter import messagebox
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
 
@@ -132,12 +130,11 @@ def censor():
     banned_count = sum(text.count(word.lower()) for word in banned_words) + \
                   sum(text.count(phrase.lower()) for phrase in banned_phrases)
 
-    if banned_count > max_banned:
-        
-        return render_template('third.html')
+    # if banned_count > max_banned: 
+    #     return render_template('third.html')
     
     return render_template('censored.html', censored_text=text)
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0', port=8580, debug=True)
