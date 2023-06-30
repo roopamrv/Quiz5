@@ -17,7 +17,7 @@ def password_checker():
     if request.method == 'POST':
         password = request.form['psw']
         valid = is_password_valid(password)
-        return render_template('VF.html', valid=valid)
+        return render_template('CP.html', valid=valid)
     return render_template('CP.html')
 
 def is_password_valid(password):
