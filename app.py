@@ -93,58 +93,18 @@ def validate_text():
     if errors:
         error_message = "Invalid text:\n"
         for sentence, sentence_errors in errors:
-            error_message += f"\nSentence: {sentence}\n"
+            error_message += f"\nWrong Sentence: {sentence}\n"
             for error in sentence_errors:
                 error_message += f"- {error}\n"
         
-        message = messagebox.showerror("Validation Error", error_message)
+        message = "Validation Error" + "\n" + error_message
         print(message)
         return render_template("text_validity.html" , msg = message)
     else:
-        msg = messagebox.showinfo("Validation Success", "Text is valid!")
-        return render_template("text_validity.html" , msg = message)
+        print(message)
+        msg = "Validation Success!! Text is valid!"
+        return render_template("text_validity.html" , msg = msg)
 
-# # Create the main window
-# window = tk.Tk()
-# window.title("Text Validator")
-
-# # Create the text entry area
-# text_label = tk.Label(window, text="Enter text:")
-# text_label.pack()
-
-# text_entry = tk.Text(window, height=10, width=50)
-# text_entry.pack()
-
-# # Create the input form
-# form_frame = tk.Frame(window)
-# form_frame.pack()
-
-# min_words_label = tk.Label(form_frame, text="Minimum words per sentence:")
-# min_words_label.grid(row=0, column=0)
-# min_words_entry = tk.Entry(form_frame)
-# min_words_entry.grid(row=0, column=1)
-
-# max_words_label = tk.Label(form_frame, text="Maximum words per sentence:")
-# max_words_label.grid(row=1, column=0)
-# max_words_entry = tk.Entry(form_frame)
-# max_words_entry.grid(row=1, column=1)
-
-# max_part_words_label = tk.Label(form_frame, text="Maximum words per part (comma separated):")
-# max_part_words_label.grid(row=2, column=0)
-# max_part_words_entry = tk.Entry(form_frame)
-# max_part_words_entry.grid(row=2, column=1)
-
-# max_word_length_label = tk.Label(form_frame, text="Maximum word length:")
-# max_word_length_label.grid(row=3, column=0)
-# max_word_length_entry = tk.Entry(form_frame)
-# max_word_length_entry.grid(row=3, column=1)
-
-# # Create the validate button
-# validate_button = tk.Button(window, text="Validate", command=validate_text)
-# validate_button.pack()
-
-# # Start the main event loop
-# window.mainloop()
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host="0.0.0.0", port=8767)
