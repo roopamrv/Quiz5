@@ -113,6 +113,41 @@ input[type=submit] {
 </form>
 <br>
 <br>
+<div class="container">
+<form>
+  <h1>Text Censorship</h1>
+    
+  <h2>Enter the Unfiltered Text:</h2>
+  <form action="/censor" method="POST">
+      <textarea name="text" rows="6" cols="50" required></textarea>
+      
+      <h2>Enter Banned Words:</h2>
+      <input type="text" name="banned_words" placeholder="Banned Word 1">
+      <input type="text" name="banned_words" placeholder="Banned Word 2">
+      <input type="text" name="banned_words" placeholder="Banned Word 3">
+      <input type="text" name="banned_words" placeholder="Banned Word 4">
+      <input type="text" name="banned_words" placeholder="Banned Word 5">
+      <input type="text" name="banned_words" placeholder="Banned Word 6">
+      
+      <h2>Enter Banned Phrases:</h2>
+      <input type="text" name="banned_phrases" placeholder="Banned Phrase 1">
+      <input type="text" name="banned_phrases" placeholder="Banned Phrase 2">
+      <input type="text" name="banned_phrases" placeholder="Banned Phrase 3">
+      <input type="text" name="banned_phrases" placeholder="Banned Phrase 4">
+      <input type="text" name="banned_phrases" placeholder="Banned Phrase 5">
+      <input type="text" name="banned_phrases" placeholder="Banned Phrase 6">
+      
+      <h2>Enter Max Allowed Banned Words/Phrases:</h2>
+      <input type="number" name="max_banned" required>
+      
+      <br><br>
+      <input type="submit" value="Censor Text">
+  </form>
+  
+
+
+</form>
+</div>
 <script>
 var myInput = document.getElementById("psw");
 var letter = document.getElementById("letter");
